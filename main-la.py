@@ -16,7 +16,7 @@ analyzer = LayoutAnalyzer(os.environ.get("UPSTAGE_API_KEY"))
 
 # 카테고리별 설정
 category = "card"
-BATCH_SIZE = 4 # 페이지 나누는 기준: 10페이지의 문서일 경우, 4-4-2로 나뉨
+BATCH_SIZE = 1 # 페이지 나누는 기준: 배치사이즈 4, 10페이지의 문서일 경우, 4-4-2로 나뉨
 
 
 # 데이터 저장 경로 설정
