@@ -43,18 +43,24 @@ for temp in tqdm(org_data_list):
     json_path = f"{spl_data_path}/{folder}/*.json"
     json_files = glob(json_path)
 
-    # json 파일 없는 경우 (레이아웃 분석 데이터 경로에 저장됨)
-    if not json_files:
+    # # json 파일 없는 경우 (레이아웃 분석 데이터 경로에 저장됨)
+    # if not json_files:
 
-        split_files = split_pdf(f"{org_data_path}/{temp}", spl_data_path, BATCH_SIZE)
+    #     split_files = split_pdf(f"{org_data_path}/{temp}", spl_data_path, BATCH_SIZE)
 
-        analyzed_files = []
-        for file in split_files:
-            analyzed_files.append(analyzer.execute(file))
+    #     analyzed_files = []
+    #     for file in split_files:
+    #         analyzed_files.append(analyzer.execute(file))
 
-    # json 파일 있는 경우
-    else:
-        print("Layout Analysis Already Exists.")
+    # # json 파일 있는 경우
+    # else:
+    #     print("Layout Analysis Already Exists.")
+
+    split_files = split_pdf(f"{org_data_path}/{temp}", spl_data_path, BATCH_SIZE)
+
+    analyzed_files = []
+    for file in split_files:
+        analyzed_files.append(analyzer.execute(file))
 
 
 # 레이아웃 분석 데이터 리스트 생성
@@ -73,11 +79,14 @@ for temp in tqdm(spl_data_list):
         md_path = f"{spl_data_path}/{folder}/*.md"
         md_files = glob(md_path)
 
-        # md 파일 있는 경우
-        if not md_files:
-            image_processor = PDFImageProcessor(pdf_file)
-            image_processor.extract_images()
+        # # md 파일 있는 경우
+        # if not md_files:
+        #     image_processor = PDFImageProcessor(pdf_file)
+        #     image_processor.extract_images()
 
-        # md 파일 없는 경우
-        else: 
-            print("HTML and Markdown Already Exists.")
+        # # md 파일 없는 경우
+        # else: 
+        #     print("HTML and Markdown Already Exists.")
+
+        image_processor = PDFImageProcessor(pdf_file)
+        image_processor.extract_images()
