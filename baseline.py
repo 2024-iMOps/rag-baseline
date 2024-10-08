@@ -267,3 +267,12 @@ for _, row in qa_pair_df.iterrows():
     idx += 1
 
     torch.cuda.empty_cache()
+
+
+# Save csv file
+exp_name = "baseline"
+save_path = f"/workspace/rag-baseline/submit"
+if not os.path.exists(save_path):
+    os.makedirs(save_path)
+result_df = pd.DataFrame(results)
+result_df.to_csv(f"{save_path}/{exp_name}.csv", encoding='utf-8', index=False)
