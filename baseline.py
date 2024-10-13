@@ -1,5 +1,6 @@
 import os
 import re
+import natsort
 
 import numpy as np
 import pandas as pd
@@ -76,6 +77,7 @@ torch.cuda.empty_cache()
 # Text Splitter
 f_path = "/workspace/rag-baseline/data-pdf-split/card/0_iM Social Worker카드" # 각자 데이터로 대체
 md_files = [pdf for pdf in os.listdir(f_path) if pdf.endswith(".md")]
+md_files = natsort.natsorted(md_files)
 
 splitter = RecursiveCharacterTextSplitter(
     chunk_size=384,
