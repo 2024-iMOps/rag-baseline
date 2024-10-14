@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rag-venv"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
@@ -67,6 +67,8 @@ streamlit-drawable-canvas = "^0.9.3"
 nodejs = "^0.1.1"
 npm = "^0.1.1"
 pymongo = "^4.10.1"
+flask = "^3.0.3"
+flask-cors = "^5.0.0"
 
 
 [build-system]
