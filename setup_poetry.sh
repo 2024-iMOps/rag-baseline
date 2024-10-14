@@ -8,7 +8,7 @@ read GIT_URL
 git clone $GIT_URL
 
 ## .env에 API Key 작성
-cd rag-baseline
+cd /workspace/rag-baseline
 if [ ! -f ".env" ]; then
   touch .env
 fi
@@ -22,6 +22,7 @@ read API_KEY
 echo "${API_NAME}=\"${API_KEY}\"" > .env
 
 ## install sudo and front
+cd /workspace
 apt update
 apt list --upgradable
 apt install sudo
@@ -31,9 +32,9 @@ sudo apt install -y nodejs
 npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom axios react-pdf
 
 ## Poetry 설치 및 환경 구성
-cd /
-curl -sSL https://install.python-poetry.org | python3 -
 cd /workspace
+curl -sSL https://install.python-poetry.org | python3 -
+cd /workspace/rag-baseline
 export PATH='/root/.local/bin'
 poetry --version
 poetry install
